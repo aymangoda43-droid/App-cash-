@@ -433,6 +433,11 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--t
           <input class="app-inp" type="number" id="app_ty" placeholder="0.00" inputmode="decimal" min="0" oninput="recalc()">
           <button class="app-clr" onclick="clr('app_ty')">✕</button>
         </div>
+        <div class="app-row">
+          <span class="app-badge jz">jahez | جاهز</span>
+          <input class="app-inp" type="number" id="app_jz" placeholder="0.00" inputmode="decimal" min="0" oninput="recalc()">
+          <button class="app-clr" onclick="clr('app_jz')">✕</button>
+        </div>
       </div>
       <div class="apps-subtotal">
         <span class="ast-lbl">Apps Total | إجمالي التطبيقات</span>
@@ -819,7 +824,7 @@ async function renderReport(){
     else{tR.cash+=d.cashNet||0;tR.net+=d.networkNet||0;tR.app+=d.appsNet||0;tR.total+=d.total||0;}
   });
   const compareHtml=repBranch==='both'?`<div class="compare-card"><div class="compare-title">BRANCH COMPARISON | مقارنة الفرعين</div><div class="compare-row"><span class="compare-lbl">Cash | كاش</span><div class="compare-vals"><span class="cv" style="color:var(--branch1)">${fmt(tN.cash)}</span><span class="cv" style="color:var(--branch2)">${fmt(tR.cash)}</span></div></div><div class="compare-row"><span class="compare-lbl">Network | شبكة</span><div class="compare-vals"><span class="cv" style="color:var(--branch1)">${fmt(tN.net)}</span><span class="cv" style="color:var(--branch2)">${fmt(tR.net)}</span></div></div><div class="compare-row"><span class="compare-lbl">Apps | تطبيقات</span><div class="compare-vals"><span class="cv" style="color:var(--branch1)">${fmt(tN.app)}</span><span class="cv" style="color:var(--branch2)">${fmt(tR.app)}</span></div></div><div class="compare-row" style="border-top:1px solid var(--gold)"><span class="compare-lbl" style="color:var(--gold);font-weight:700">Total | الإجمالي</span><div class="compare-vals"><span class="cv" style="color:var(--branch1);font-size:14px">${fmt(tN.total)}</span><span class="cv" style="color:var(--branch2);font-size:14px">${fmt(tR.total)}</span></div></div></div>`:'';
-  document.getElementById('monthlySumCard').innerHTML=`<div class="monthly-sum"><div class="ms-title">Monthly Summary | ملخص ${label}</div><div class="ms-total">${fmt(tGrand)} ﷼</div><div class="ms-grid"><div class="ms-cell mc"><div class="ms-cell-lbl">Cash | كاش</div><div class="ms-cell-val">${fmt(tCash)}</div></div><div class="ms-cell mn"><div class="ms-cell-lbl">Network | شبكة</div><div class="ms-cell-val">${fmt(tNet)}</div></div><div class="ms-cell ma"><div class="ms-cell-lbl">Apps | تطبيقات</div><div class="ms-cell-val">${fmt(tApp)}</div></div></div>${tExp>0?`<div class="ms-row"><span class="ms-rl" style="color:var(--exp)">Deductions | الخصومات</span><span class="ms-rv" style="color:var(--exp)">${fmt(tExp)} ﷼</span></div>`:''}<div class="ms-row"><span class="ms-rl">Days | أيام</span><span class="ms-rv">${allDocs.length}</span></div><div class="apps-breakdown"><div class="ab-title">APPS | التطبيقات</div><div class="ab-grid"><div class="ab-cell"><div class="ab-lbl">HungerStation</div><div class="ab-val">${fmt(tApps.hs)}</div></div><div class="ab-cell"><div class="ab-lbl">نقطة</div><div class="ab-val">${fmt(tApps.nq)}</div></div><div class="ab-cell"><div class="ab-lbl">The Chefz</div><div class="ab-val">${fmt(tApps.tc)}</div></div><div class="ab-cell"><div class="ab-lbl">Ninja</div><div class="ab-val">${fmt(tApps.nj)}</div></div><div class="ab-cell"><div class="ab-lbl">Keeta</div><div class="ab-val">${fmt(tApps.kt)}</div></div><div class="ab-cell"><div class="ab-lbl">Toyo</div><div class="ab-val">${fmt(tApps.ty)}</div></div></div></div></div>${compareHtml}`;
+  document.getElementById('monthlySumCard').innerHTML=`<div class="monthly-sum"><div class="ms-title">Monthly Summary | ملخص ${label}</div><div class="ms-total">${fmt(tGrand)} ﷼</div><div class="ms-grid"><div class="ms-cell mc"><div class="ms-cell-lbl">Cash | كاش</div><div class="ms-cell-val">${fmt(tCash)}</div></div><div class="ms-cell mn"><div class="ms-cell-lbl">Network | شبكة</div><div class="ms-cell-val">${fmt(tNet)}</div></div><div class="ms-cell ma"><div class="ms-cell-lbl">Apps | تطبيقات</div><div class="ms-cell-val">${fmt(tApp)}</div></div></div>${tExp>0?`<div class="ms-row"><span class="ms-rl" style="color:var(--exp)">Deductions | الخصومات</span><span class="ms-rv" style="color:var(--exp)">${fmt(tExp)} ﷼</span></div>`:''}<div class="ms-row"><span class="ms-rl">Days | أيام</span><span class="ms-rv">${allDocs.length}</span></div><div class="apps-breakdown"><div class="ab-title">APPS | التطبيقات</div><div class="ab-grid"><div class="ab-cell"><div class="ab-lbl">HungerStation</div><div class="ab-val">${fmt(tApps.hs)}</div></div><div class="ab-cell"><div class="ab-lbl">نقطة</div><div class="ab-val">${fmt(tApps.nq)}</div></div><div class="ab-cell"><div class="ab-lbl">The Chefz</div><div class="ab-val">${fmt(tApps.tc)}</div></div><div class="ab-cell"><div class="ab-lbl">Ninja</div><div class="ab-val">${fmt(tApps.nj)}</div></div><div class="ab-cell"><div class="ab-lbl">Keeta</div><div class="ab-val">${fmt(tApps.kt)}</div></div><div class="ab-cell"><div class="ab-lbl">Toyo</div><div class="ab-val">${fmt(tApps.ty)}</div></div><div class="ab-cell"><div class="ab-lbl">جاهز</div><div class="ab-val">${fmt(tApps.jz)}</div></div></div></div></div>${compareHtml}`;
   if(allDocs.length===0){document.getElementById('dayTable').innerHTML=`<div class="no-data"><div class="ico">📭</div>No data | لا توجد بيانات</div>`;return;}
   document.getElementById('dayTable').innerHTML=allDocs.map(d=>{
     const[yr,mo,dy]=d.key.split('-');
@@ -877,7 +882,7 @@ window.exportPDF=async function(){
     else{tR2.cash+=d.cashNet||0;tR2.net+=d.networkNet||0;tR2.app+=d.appsNet||0;tR2.total+=d.total||0;}
   });
 
-  const APP_NAMES2={hs:'HungerStation',nq:'نقطة Nuqta',tc:'The Chefz',nj:'Ninja نينجا',kt:'Keeta كيتا',ty:'Toyo تويو'};
+  const APP_NAMES2={hs:'HungerStation',nq:'نقطة Nuqta',tc:'The Chefz',nj:'Ninja نينجا',kt:'Keeta كيتا',ty:'Toyo تويو',jz:'جاهز jahez'};
 
   const dayRows=allDocs2.map(d=>{
     const[yr,mo,dy]=d.key.split('-');
@@ -970,6 +975,7 @@ table{border-collapse:collapse;}
     <td style="padding:6px 10px;text-align:center"><div style="font-size:9px;color:#6b7280">Ninja</div><div style="font-weight:800;color:#d97706">${fmt(tApps2.nj)}</div></td>
     <td style="padding:6px 10px;text-align:center"><div style="font-size:9px;color:#6b7280">Keeta</div><div style="font-weight:800;color:#d97706">${fmt(tApps2.kt)}</div></td>
     <td style="padding:6px 10px;text-align:center"><div style="font-size:9px;color:#6b7280">Toyo</div><div style="font-weight:800;color:#d97706">${fmt(tApps2.ty)}</div></td>
+    <td style="padding:6px 10px;text-align:center"><div style="font-size:9px;color:#6b7280">جاهز</div><div style="font-weight:800;color:#d97706">${fmt(tApps2.jz)}</div></td>
   </tr>
 </table>
 
