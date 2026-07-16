@@ -428,6 +428,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--t
         </div>
         <div class="app-row">
           <span class="app-badge ty">Toyo</span>
+          <span class="app-badge jz">jahez | جاهز</span>
           <span class="app-name-ar">تويو</span>
           <input class="app-inp" type="number" id="app_ty" placeholder="0.00" inputmode="decimal" min="0" oninput="recalc()">
           <button class="app-clr" onclick="clr('app_ty')">✕</button>
@@ -572,8 +573,8 @@ async function fsQuery(col,filters){
   return rows.filter(r=>r.document).map(r=>fromFS(r.document));
 }
 
-const APPS=['hs','nq','tc','nj','kt','ty'];
-const APP_NAMES={hs:'HungerStation | هنقرستيشن',nq:'نقطة | Nuqta',tc:'The Chefz | ذا شيف',nj:'Ninja | نينجا',kt:'Keeta | كيتا',ty:'Toyo | تويو'};
+const APPS=['hs','nq','tc','nj','kt','ty','jz'];
+const APP_NAMES={hs:'HungerStation | هنقرستيشن',nq:'نقطة | Nuqta',tc:'The Chefz | ذا شيف',nj:'Ninja | نينجا',kt:'Keeta | كيتا',ty:'Toyo | تويو',jz:'جاهز | jahez'};
 const MONTHS_AR=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
 const MONTHS_EN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
